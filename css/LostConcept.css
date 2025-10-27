@@ -5,34 +5,122 @@
     font-style: normal;
 }
 
+/* Banner superior */
+.top-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    z-index: 1031;
+    background-color: #000000;
+    color: #ffffff;
+    border: none;
+}
+
+.banner-content {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    height: 100%;
+    position: absolute;
+    white-space: nowrap;
+    padding: 0 24px;
+    min-width: 200%;
+}
+
+.banner-text {
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.banner-logo {
+    height: 32px;
+    width: auto;
+    margin: 0 4px;
+}
+
 /*NAVBAR*/
 .navbar {
     background-color: #fff !important;
     box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    top: 40px;
+    padding: 0.25rem 0.5rem;
+    height: auto;
+}
+
+.navbar-brand img {
+    width: 45px;
+    height: auto;
 }
 
 .navbar-toggler {
-  background-color: transparent;
-  border: none;
-  padding: 0.25rem; 
-  outline: none;
-  box-shadow: none;
+    background-color: transparent;
+    border: none;
+    padding: 0.25rem;
+    outline: none;
+    box-shadow: none;
 }
 
 .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0,0,0,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0,0,0,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+/* Estilos para el menú hamburguesa en modo oscuro */
+@media (prefers-color-scheme: dark) {
+    .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
+    }
+
+    .navbar-collapse {
+        background-color: #000000 !important;
+        padding: 1rem;
+        border-radius: 0.5rem;
+    }
+
+    .navbar-nav .nav-link {
+        color: #ffffff !important;
+    }
+
+    .navbar-nav .nav-link:hover {
+        color: #cccccc !important;
+    }
+}
+
+/* También añadir los estilos para cuando se usa la clase .dark */
+body.dark .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
+}
+
+body.dark .navbar-collapse {
+    background-color: #000000 !important;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+body.dark .navbar-nav .nav-link {
+    color: #ffffff !important;
+}
+
+body.dark .navbar-nav .nav-link:hover {
+    color: #cccccc !important;
 }
 
 .navbar-nav .nav-link {
-  color: #111 !important; 
-  font-weight: 500;
-  transition:
-    filter 0.15s ease,
-    transform 0.15s ease,
-    font-weight 0.15s ease;
-  will-change: transform, filter, font-weight;
+    color: #111 !important;
+    font-weight: 500;
+    padding: 0.6rem 1rem;
+    font-size: 1.05rem;
+    border-radius: 6px;
+    transition:
+        filter 0.15s ease,
+        transform 0.15s ease,
+        font-weight 0.15s ease;
+    will-change: transform, filter, font-weight;
 }
 
 .navbar-nav .nav-link:hover,
@@ -62,12 +150,102 @@
   border-radius: 6px;
 }
 
+/* Ajustes para el navbar */
+.navbar {
+    background-color: white;
+    height: auto;
+    padding: 0.25rem 0.5rem;
+}
+
+.navbar-brand img {
+    width: 45px;  /* Logo más pequeño */
+    height: auto;
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 991px) {
+    .navbar {
+        padding: 0.2rem 0.5rem;
+    }
+    
+    .navbar-brand img {
+        width: 35px;  /* Logo más pequeño en móvil */
+    }
+    
+    .navbar-toggler {
+        padding: 0.2rem 0.35rem;
+        font-size: 0.8rem;
+    }
+    
+    .navbar-collapse {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        margin: 0;
+        background-color: #ffffff;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .navbar-nav {
+        padding: 0.5rem;
+        background-color: #ffffff;
+    }
+
+    .navbar-nav .nav-link {
+        font-size: 1rem;
+        padding: 0.75rem 1rem;
+        border-radius: 0.25rem;
+        transition: background-color 0.2s ease;
+    }
+
+    .navbar-nav .nav-link:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Ajustes específicos para modo oscuro en móvil */
+    body.dark .navbar-collapse,
+    .dark .navbar-collapse {
+        background-color: #000000 !important;
+        border: none;
+        margin: 0;
+    }
+
+    body.dark .navbar-nav,
+    .dark .navbar-nav {
+        background-color: #000000 !important;
+    }
+
+    body.dark .navbar-nav .nav-link,
+    .dark .navbar-nav .nav-link {
+        color: #ffffff !important;
+    }
+
+    body.dark .navbar-nav .nav-link:hover,
+    .dark .navbar-nav .nav-link:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+}
+
 /*NEW ARRIVALS*/
-img {
-    max-width: 100%; 
-    height: auto; 
-    display: block; 
-    margin: 0 auto; 
+
+#newarrivals {
+    margin-top: 60px;
+    padding: 20px 0;
+}
+
+#newarrivals .row {
+    margin-bottom: 40px;  /* Espaciado consistente entre filas de imágenes */
+}
+
+#newarrivals header {
+    margin: 40px 0;  /* Mismo espaciado arriba y abajo del header */
+}
+
+#newarrivals h2 {
+    font-size: 4rem;
+    text-align: center;
+    margin: 0;  /* Quitamos el margen del h2 para controlarlo desde el header */
 }
 
 /*SHOP */
@@ -75,6 +253,26 @@ img {
   margin: 48px auto;            
   max-width: 1300px;           
   box-sizing: border-box;
+  overflow: hidden;
+}
+
+#shop .row {
+  margin-bottom: 2rem;
+}
+
+#shop .card {
+  transition: transform 0.2s ease-in-out;
+}
+
+#shop .card:hover {
+  transform: translateY(-5px);
+}
+
+/* Ajuste de espaciado para cards */
+#shop .col-md-6,
+#shop .col-6,
+#shop .col-md-3 {
+  margin-bottom: 2rem;
 }
 
 .card-overlay {
@@ -101,19 +299,75 @@ img {
     display: block;
 }
 
-/*CONTACTO */
-#contact {
-    background-color: #f9f9f9; 
-    padding: 50px 20px; 
-    border-top: 2px solid #ddd; 
-    border-bottom: 2px solid #ddd; 
+/* Reducir imágenes en карточки y carruseles para mantener proporciones */
+.card-img-top,
+#shop .card img {
+  max-height: 360px;
+  object-fit: cover;
 }
 
+/* Excepción: en el carousel de la home permitimos que las imágenes no se recorten */
+#homeCarousel {
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+#homeCarousel.carousel-fade .carousel-inner {
+  height: auto;
+  width: 100%;
+}
+
+#homeCarousel.carousel-fade .carousel-item {
+  opacity: 0;
+  transition: opacity 1.2s ease-in-out;
+  position: absolute;
+  display: block !important;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+#homeCarousel.carousel-fade .carousel-item.active {
+  position: relative;
+  opacity: 1;
+}
+
+#homeCarousel .carousel-item img {
+  max-height: none !important;
+  height: auto !important;
+  width: 100%;
+  object-fit: cover !important;
+  display: block;
+}
+
+/* Mejoras adicionales para fade suave */
+#homeCarousel.carousel-fade .carousel-inner .active.carousel-item-start,
+#homeCarousel.carousel-fade .carousel-inner .active.carousel-item-end {
+  opacity: 0;
+  z-index: 1;
+}
+
+#homeCarousel.carousel-fade .carousel-inner .active,
+#homeCarousel.carousel-fade .carousel-inner .carousel-item-next.carousel-item-start,
+#homeCarousel.carousel-fade .carousel-inner .carousel-item-prev.carousel-item-end {
+  opacity: 1;
+  z-index: 2;
+}
+
+/*CONTACTO */
+#contact {
+    padding: 50px 20px; 
+    border-top: none;    /* quitada la línea de separación */
+    border-bottom: none; /* quitada la línea de separación */
+}
+
+/* Mantener estilos de artículo */
 #contact article {
     max-width: 800px;
     margin: 0 auto;
 }
 
+/* Colores por defecto (modo claro no se modifica) */
 #contact header h2 {
     font-size: 2rem;
     color: #333;
@@ -130,106 +384,48 @@ img {
     text-align: center;
 }
 
-#contact form {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: left;
+/* Ajustes específicos para modo oscuro: fondo blanco y texto negro en el formulario */
+body.dark #contact,
+body.dark #contact header h2,
+body.dark #contact p {
+    color: #ffffff !important;
 }
 
-#contact .form-control {
-    border: 1px solid #c1c0c0;
-    border-radius: 4px;
-    padding: 10px;
-    font-size: 1rem;
-    margin-bottom: 15px;
+body.dark #contact form {
+    background-color: #ffffff !important;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-#contact .form-control:focus {
-    border-color: #c1c0c0; 
-    box-shadow: 0 0 0 0.2rem rgba(193, 192, 192, 0.25); 
-    outline: none;
+body.dark #contact .form-label {
+    color: #000000 !important;
 }
 
-#contact .form-label {
-    font-size: 0.9rem;
-    color: #333;
-    font-weight: bold;
-    display: block;
-    margin-bottom: 5px;
-    text-align: left;
+body.dark #contact .form-control {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    border: 1px solid #cccccc !important;
 }
 
-#contact .btn-primary {
-    background-color: #000000;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1rem;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+body.dark #contact .form-control:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0,0,0,0.1);
+    border-color: #000000 !important;
 }
 
-#contact .btn-primary:hover {
-    background-color: #525962;
+body.dark #contact .form-control::placeholder {
+    color: #666666 !important;
 }
 
-/*FOOTER*/
-footer {
-  background-color: #000000;
-  color: white;
-  text-align: center;
-  padding: 30px 20px;
-  width: 100%;
-  margin-top: auto;
-  box-sizing: border-box;
-  overflow-x: hidden;
-  max-width: 100vw;
+body.dark #contact .btn-light {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    border: none !important;
 }
 
-.iconos-redes {
-  margin-bottom: 10px;
+body.dark #contact .btn-light:hover {
+    background-color: #333333 !important;
+    color: #ffffff !important;
 }
 
-.iconos-redes a {
-  color: white;
-  font-size: 24px;
-  margin: 0 10px;
-  transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.iconos-redes a:hover {
-  color: #d082f1;
-  transform: scale(1.1);
-}
-
-.iconos-redes a:active {
-  color: #d1b3e0;
-  transform: scale(0.65);
-}
-
-.footer-links {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  font-size: 14px;
-}
-
-.footer-links a {
-  color: white;
-  text-decoration: none;
-  margin: 0 5px;
-  transition: color 0.3s ease;
-}
-
-.footer-links a:hover {
-  color: #8f8f90;
-}
-
-.footer-text {
-  font-size: 14px;
-  color: white;
-}
 
 /*TIPOGRAFÍA GENERAL*/
 section header h2 {
@@ -259,12 +455,59 @@ h1,h2,h3,h4,h5,h6 {
 
 /*MEDIA QUERIES*/
 @media (max-width: 768px) {
+  /* Ajustes generales para móvil */
+  body {
+    font-size: 14px;
+  }
+
+  /* Ajustes de secciones */
   #shop {
     margin: 32px auto;
   }
 
+  #shop .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  #shop .col-md-6, 
+  #shop .col-6,
+  #shop .col-12 {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  /* Ajustes de cards */
+  .card {
+    margin-bottom: 1rem;
+  }
+
+  .card-body {
+    padding: 1rem;
+  }
+
+  /* Ajuste de imágenes en cards */
+  .card-img-top {
+    height: 200px;
+    object-fit: cover;
+  }
+
+  /* Ajustes para el fitting room */
+  #fittingroom .carousel-container {
+    width: 100%;
+    margin: 0;
+    transform: none;
+  }
+
+  #carouselSuperpuesto1,
+  #carouselSuperpuesto2 {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  /* Ajustes de contacto */
   #contact {
-    padding: 30px 10px;
+    padding: 2rem 1rem;
   }
 
   #contact header h2 {
@@ -275,10 +518,79 @@ h1,h2,h3,h4,h5,h6 {
     font-size: 0.9rem;
   }
 
+  #contact form {
+    padding: 1.5rem !important;
+  }
+
+  /* Ajustes footer */
   footer {
     max-width: 100vw;
     overflow-x: hidden;
     box-sizing: border-box;
+    padding: 2rem 1rem;
+  }
+}
+
+/* En mobile queremos que algunos elementos sean full-bleed (sin margen lateral)
+   compensando el padding global aplicado a html/body. */
+@media (max-width: 768px) {
+  /* Footer full-bleed */
+  footer {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: -1rem;
+    margin-right: -1rem;
+    width: calc(100% + 2rem);
+    box-sizing: border-box;
+  }
+
+  /* Home carousel full-bleed */
+  #homeCarousel,
+  #homeCarousel .carousel-inner,
+  #homeCarousel .carousel-item,
+  #homeCarousel .carousel-item img {
+    margin-left: -1rem;
+    margin-right: -1rem;
+    width: calc(100% + 2rem);
+    max-width: none;
+    padding-left: 0;
+    padding-right: 0;
+    box-sizing: border-box;
+  }
+}
+
+/* Tablets y pantallas medianas */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  #shop .card-img-top {
+    height: 250px;
+  }
+
+  .card-body {
+    padding: 1.25rem;
+  }
+}
+
+/* Pantallas grandes */
+@media (min-width: 1025px) {
+  .container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  #shop .row {
+    margin-left: -1rem;
+    margin-right: -1rem;
+  }
+
+  #shop .col-md-6,
+  #shop .col-md-3 {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
 
@@ -298,4 +610,770 @@ h1,h2,h3,h4,h5,h6 {
 
 @media (max-width: 400px) {
   :root { --page-padding: 8px; }
+}
+
+/* Modal de producto (vista amplia desde la sección Shop) */
+.product-modal-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.45);
+  z-index: 2000;
+}
+
+.product-modal {
+  width: 70vw;
+  max-width: 1200px;
+  height: 70vh;
+  background: #ffffff;
+  border-radius: 8px;
+  display: flex;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  position: relative;
+}
+
+.product-modal .left {
+  width: 60%;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-modal .left img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.product-modal .right {
+  width: 40%;
+  padding: 20px 24px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.product-modal .close-btn {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  background: transparent;
+  border: none;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  color: #222;
+}
+
+.product-modal h3 {
+  margin-top: 8px;
+  margin-bottom: 12px;
+  font-size: 1.35rem;
+}
+
+.product-modal .description {
+  color: #444;
+  font-size: 0.98rem;
+  line-height: 1.5;
+  overflow-y: auto;
+}
+
+.product-modal .product-price {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #000;
+}
+
+@media (max-width: 900px) {
+  .product-modal { width: 92vw; height: 80vh; flex-direction: column; }
+  .product-modal .left, .product-modal .right { width: 100%; }
+  .product-modal .right { padding: 12px; }
+  .product-modal .product-price { position: static; margin-top: 12px; }
+}
+
+img {
+    max-width: 100%; 
+    height: auto; 
+    display: block; 
+    margin: 0 auto; 
+}
+
+/* Intro overlay (entrada con logo) */
+#intro-overlay{
+  position:fixed;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#ffffff;
+  z-index:99999;
+  pointer-events:auto; /* bloquear interacciones hasta que se esconda */
+}
+#intro-overlay.hidden{display:none}
+#intro-logo{
+    width:320px; /* Aumentado de 220px a 320px */
+    max-width:80vw; /* Aumentado de 60vw a 80vw para móviles */
+    height:auto;
+    opacity:1; /* visible inmediatamente */
+    transform:scale(0.85); /* Ajustado ligeramente para compensar el tamaño mayor */
+    transform-origin:center center;
+    will-change: transform, opacity;
+    user-select:none;
+}
+/* Evitar scroll mientras dure la intro */
+body.intro-playing{overflow:hidden}
+
+/* Carrusels y contenedores de imágenes */
+.carousel-container {
+    width: 90%;
+    max-width: 760px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+#fittingroom {
+    position: relative;
+    padding-bottom: 2rem;
+    overflow: hidden;
+}
+
+.carousel-control-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 64px;
+    height: 64px;
+    z-index: 2;
+    background: none;
+    border: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-control-btn.prev {
+    left: -56px;
+}
+
+.carousel-control-btn.next {
+    right: -56px;
+}
+
+.background-container {
+    width: 800px;
+    max-width: 100%;
+    margin: auto;
+    background-size: cover;
+    background-position: center;
+    padding: 30px 0;
+}
+
+.card-sized {
+    width: 100%;
+}
+
+.img-cover {
+    height: 180px;
+    object-fit: cover;
+}
+
+.img-full-cover {
+    object-fit: cover;
+    height: 100%;
+}
+
+/* Revert: restaurar comportamiento por defecto de las imágenes (sin recorte) */
+#fittingroom .carousel-inner .carousel-item img,
+#fittingroom .carousel-container img,
+#fittingroom img,
+#newarrivals img.img-fluid,
+#newarrivals .img-fluid.w-100 {
+    object-fit: initial !important;
+    width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    display: block;
+}
+
+/* Asegurar que no haya overflow que esconda partes de la imagen */
+#fittingroom .carousel-container,
+#newarrivals .container {
+    overflow: visible !important;
+}
+
+/* Ajustes para que tarjetas y top-banner respondan al modo oscuro/claro */
+
+/* Variables por defecto (si no están definidas arriba) */
+:root {
+    --card-bg: #ffffff;
+    --card-border: rgba(0,0,0,0.08);
+    --banner-logo-filter: none;
+}
+
+/* Valores para modo oscuro (si no están ya declarados) */
+body.dark {
+    --card-bg: #121318;
+    --card-border: rgba(255,255,255,0.06);
+  --banner-logo-filter: none;
+}
+
+/* Transiciones suaves */
+.card,
+.card .card-body,
+.card-overlay,
+footer,
+.top-banner {
+    transition: background-color 220ms ease, color 220ms ease, border-color 220ms ease, filter 220ms ease;
+}
+
+/* Top banner */
+.top-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    z-index: 1031;
+    background-color: #000000 !important;  /* Solid black in light mode */
+    color: #ffffff !important;
+    border: none;
+    transition: background-color 220ms ease, color 220ms ease;
+}
+
+/* Texto e iconos del banner */
+.top-banner .banner-text {
+    color: var(--nav-link) !important;
+}
+
+/* Ajuste para los logos del banner (si tienen fondo transparente) */
+.top-banner .banner-logo {
+    filter: var(--banner-logo-filter);
+}
+
+/* Si algún elemento del banner usaba colores fijos, forzamos contraste en dark */
+body.dark .top-banner {
+    border-bottom-color: rgba(255,255,255,0.03);
+}
+
+/* Pequeñas correcciones en móviles si fuera necesario */
+@media (max-width: 576px) {
+    .card {
+        border-width: 0.8px;
+    }
+}
+
+/* Estilo para todos los botones */
+.btn-primary {
+    background-color: #000000 !important;
+    border-color: #000000 !important;
+    color: #ffffff !important;
+}
+
+.btn-primary:hover {
+    background-color: #8f8f90 !important;
+    border-color: #333333 !important;
+}
+
+.hover-dark:hover {
+    background-color: #8f8f90 !important;
+    color: white !important;
+    transition: all 0.3s ease;
+}
+
+.super-rounded {
+    border-radius: 1rem !important;
+}
+
+/* Contenedor principal para añadir márgenes laterales */
+.container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  /* Añadimos padding lateral a toda la página para respiración visual en mobile */
+  html, body {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+  .responsive-wrap {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 1rem !important;
+    box-sizing: border-box;
+    overflow: visible;
+  }
+}
+
+/* Ajustes responsive para secciones */
+section {
+    padding: 2rem 0;
+}
+
+/* Reset de estilos para tarjetas */
+.card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin: 0;
+    border: 1px solid rgba(0,0,0,0.125);
+    background-color: var(--card-bg);
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 1rem;
+}
+
+.card-title {
+    margin: 0 0 0.5rem 0;
+}
+
+.card-text {
+    margin: 0 0 1rem 0;
+    flex-grow: 1;
+}
+
+.card .row {
+    margin: 0;
+    width: 100%;
+}
+
+.card .col-md-4,
+.card .col-md-8 {
+    padding: 0;
+}
+
+/* Eliminar anidación de card-body */
+.card-body .card-body {
+    padding: 0;
+    margin: 0;
+}
+
+/* Botones */
+.card .btn {
+    width: fit-content;
+    margin-top: auto;
+    align-self: flex-start;
+}
+
+/* Controles del primer slider (fitting room) - colocarlos arriba de la imagen */
+#carouselSolo {
+  position: relative; /* asegurar contexto para controles */
+}
+#carouselSolo .carousel-control-prev,
+#carouselSolo .carousel-control-next {
+  position: absolute;
+  margin-top: 10rem;            /* bajadas 20px respecto a la versión anterior (antes 8px) */
+  transform: none;    /* evitar translateY(-50%) */
+  width: 44px;
+  height: 44px;
+  z-index: 9999;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  pointer-events: auto;
+}
+#carouselSolo .carousel-control-prev { left: 8px; }
+#carouselSolo .carousel-control-next { right: 8px; }
+
+/* Usar flechas SVG como background-image para prev/next */
+#carouselSolo .carousel-control-prev-icon,
+#carouselSolo .carousel-control-next-icon {
+  width: 30rem;
+  height: 30rem;
+  background-size: 40px 40px;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: inline-block;
+}
+
+/* Flecha izquierda */
+#carouselSolo .carousel-control-prev-icon {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='M15 18l-6-6 6-6'/></svg>");
+}
+
+/* Flecha derecha */
+#carouselSolo .carousel-control-next-icon {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='M9 6l6 6-6 6'/></svg>");
+}
+
+#carouselSolo .carousel-indicators {
+  bottom: 8px; /* indicadores cerca del borde inferior de la imagen */
+}
+
+#carouselSuperpuesto2 {
+  margin-top: -100px; /* súbelo o bájalo cambiando este valor */
+}
+
+/* Estilos responsive para el fitting room */
+@media (max-width: 768px) {
+    #fittingroom {
+        padding-top: 1rem;
+        margin-top: 0;
+        position: relative;
+    }
+
+    #fittingroom .carousel-container {
+        transform: none;
+        width: 100%;
+        margin: 0;
+        padding: 0 1rem;
+    }
+
+    #carouselSolo {
+        margin-bottom: 2rem;
+    }
+
+    #carouselSuperpuesto1,
+    #carouselSuperpuesto2 {
+        position: relative;
+        width: 100%;
+        margin: 0 0 1rem 0;
+        transform: none;
+    }
+
+    #carouselSuperpuesto1 .carousel-inner,
+    #carouselSuperpuesto2 .carousel-inner {
+        max-width: 100%;
+    }
+
+    #carouselSuperpuesto1 img,
+    #carouselSuperpuesto2 img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    #fittingroom .position-relative {
+        margin-top: 0 !important;
+        padding: 1rem 0;
+    }
+}
+
+/* Ajustes para tablets */
+@media (min-width: 769px) and (max-width: 1024px) {
+    #fittingroom .carousel-container {
+        width: 95%;
+        transform: none;
+    }
+
+    #carouselSuperpuesto1,
+    #carouselSuperpuesto2 {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 90%;
+    }
+}
+
+/* === MODO OSCURO: respetar la preferencia del usuario === */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --page-bg: #070709;
+    --text-color: #e8e8e8;
+    --muted-text: #bdbdbd;
+    --card-bg: #0f1113;
+    --card-border: rgba(255,255,255,0.06);
+    --nav-bg: #0b0b0d;
+    /* En modo oscuro queremos el banner superior blanco con texto negro */
+    --banner-bg: #ffffff;
+    --banner-text-color: #000000;
+    --footer-bg: #050506;
+    --control-bg: rgba(255,255,255,0.06);
+    --banner-logo-filter: none; /* mantener color original del logoo.png */
+  }
+
+  /* Estilos específicos para la tarjeta Static Vision */
+  .card.bg-dark.text-white {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  .card.bg-dark.text-white .card-title,
+  .card.bg-dark.text-white .card-text {
+    color: #000000 !important;
+  }
+
+  .card.bg-dark.text-white .btn-light {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    border: none;
+  }
+
+  .card.bg-dark.text-white .btn-light:hover {
+    background-color: #333333 !important;
+    color: #ffffff !important;
+  }
+
+  /* Página y texto */
+  body, html {
+    background-color: var(--page-bg) !important;
+    color: var(--text-color) !important;
+  }
+
+  /* Navbar */
+  .navbar {
+    background-color: var(--nav-bg) !important;
+    box-shadow: none !important;
+  }
+  .navbar-nav .nav-link {
+    color: var(--text-color) !important;
+  }
+
+  /* Top banner: en oscuro será blanco con texto negro */
+  .top-banner {
+    background-color: var(--banner-bg) !important;
+    color: var(--banner-text-color, var(--text-color)) !important;
+  }
+  .top-banner .banner-logo { filter: var(--banner-logo-filter) !important; }
+  .top-banner .banner-text { color: var(--banner-text-color, var(--text-color)) !important; }
+
+  /* Cards */
+  .card {
+    background-color: var(--card-bg) !important;
+    border-color: var(--card-border) !important;
+    color: var(--text-color) !important;
+  }
+
+  .card .card-title, .card .card-text {
+    color: var(--text-color) !important;
+  }
+
+  /* Footer */
+  footer {
+    background-color: var(--footer-bg) !important;
+    color: var(--text-color) !important;
+  }
+
+  /* Botones */
+  .btn-primary {
+    background-color: #ffffff !important;
+    color: #000 !important;
+    border-color: #ffffff !important;
+  }
+  .btn-primary:hover {
+    background-color: #f0f0f0 !important;
+    color: #000 !important;
+  }
+
+  /* Formularios / inputs */
+  input, textarea, select, .form-control {
+    background-color: rgba(255,255,255,0.03) !important;
+    color: var(--text-color) !important;
+    border: 1px solid rgba(255,255,255,0.06) !important;
+  }
+
+  /* Intro overlay: si se muestra sobre modo oscuro, mantener contraste */
+  #intro-overlay { background: #0b0b0b !important; }
+  #intro-logo { filter: none; }
+
+  /* Controles del carrusel (mejor contraste en oscuro si es necesario) */
+  #carouselSolo .carousel-control-prev,
+  #carouselSolo .carousel-control-next {
+    background: rgba(255, 255, 255, 0.06);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+  }
+  #carouselSolo .carousel-control-prev-icon,
+  #carouselSolo .carousel-control-next-icon {
+    /* usar flechas blancas sobre fondo tenue */
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='M15 18l-6-6 6-6'/></svg>");
+  }
+
+  /* Flechas blancas para los sliders del fitting room en modo oscuro */
+  #carouselSuperpuesto1 svg path,
+  #carouselSuperpuesto2 svg path {
+    stroke: #ffffff !important;
+  }
+  #carouselSolo .carousel-control-next-icon {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='M9 6l6 6-6 6'/></svg>");
+  }
+
+  /* Indicadores */
+  #carouselSolo .carousel-indicators button { background-color: rgba(255,255,255,0.45); }
+
+  /* Ajustes específicos de texto más pequeño/muted */
+  p, .card-text { color: var(--muted-text) !important; }
+}
+
+/* Fallback: permitir forzar modo oscuro con la clase .dark (compat con reglas ya existentes) */
+.dark {
+  --page-bg: #070709;
+  --text-color: #e8e8e8;
+  --muted-text: #bdbdbd;
+  --card-bg: #0f1113;
+  --card-border: rgba(255,255,255,0.06);
+  --nav-bg: #0b0b0d;
+  --banner-bg: #ffffff; /* banner blanco en modo oscuro forzado */
+  --banner-text-color: #000000;
+  --banner-logo-filter: none; /* mantener color original del logoo.png */
+  --footer-bg: #050506;
+}
+
+/* Forzar texto del banner cuando se usa la clase .dark */
+.dark .top-banner .banner-text { color: var(--banner-text-color, #000000) !important; }
+
+#about h2{
+  padding-top: 6rem;
+}
+
+#home {
+  padding-top: 6rem;
+}
+
+@media (max-width: 768px) {
+  #home {
+    padding-top: 5rem;
+  }
+  
+  #homeCarousel {
+    margin: 0;
+  }
+  
+  #homeCarousel .carousel-item img {
+    min-height: 200px;
+    object-position: center;
+  }
+  
+  #homeCarousel .carousel-indicators {
+    bottom: 0;
+  }
+}
+
+/* ===== FOOTER INVERSO AUTOMÁTICO ===== */
+
+/* --- MODO CLARO (por defecto) --- */
+footer {
+  background-color: #000000 !important; /* fondo negro */
+  color: #ffffff !important; /* texto blanco */
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  font-family: 'Inter', sans-serif;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Íconos */
+footer .iconos-redes a {
+  color: #ffffff !important;
+  font-size: 1.3rem;
+  margin: 0 0.5rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+footer .iconos-redes a:hover {
+  color: #bbbbbb !important;
+  transform: translateY(-2px);
+}
+
+/* Enlaces de condiciones */
+footer .footer-links {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  color: #ffffff !important;
+}
+footer .footer-links a {
+  color: #ffffff !important;
+  text-decoration: none;
+  margin: 0 0.5rem;
+  transition: color 0.3s ease;
+}
+footer .footer-links a:hover {
+  color: #bbbbbb !important;
+}
+footer .footer-links span {
+  color: #ffffff !important;
+}
+
+/* Texto inferior */
+footer .footer-text {
+  margin-top: 1.2rem;
+  font-size: 0.9rem;
+  color: #ffffff !important;
+  opacity: 0.85;
+}
+
+/* --- MODO OSCURO (invierte colores) --- */
+@media (prefers-color-scheme: dark) {
+  footer {
+    background-color: #ffffff !important; /* fondo blanco */
+    color: #000000 !important; /* texto negro */
+    border-top: 1px solid rgba(0,0,0,0.1);
+  }
+
+  footer .iconos-redes a,
+  footer .footer-links a,
+  footer .footer-links span,
+  footer .footer-text {
+    color: #000000 !important;
+  }
+
+  footer .iconos-redes a:hover,
+  footer .footer-links a:hover {
+    color: #555555 !important;
+  }
+}
+
+/* Móvil: permitir que las sudaderas/pantalones se superpongan al primer slider */
+@media (max-width: 768px) {
+  /* Contenedores que pueden recortar: permitir overflow y recibir eventos */
+  .position-relative.mb-5,
+  .responsive-wrap,
+  #shop {
+    overflow: visible !important;
+    position: relative !important;
+    pointer-events: auto !important;
+    z-index: 20;
+  }
+
+  /* Tirar las cards hacia arriba para que queden encima del slider */
+  #shop {
+    margin-top: -110px; /* ajustar valor según cuánto quieras que se superpongan */
+  }
+
+  /* Asegurar que cada card esté por encima y mantenga su contenido visible */
+  #shop .col-md-6,
+  #shop .col-6,
+  #shop .col-12,
+  #shop .card {
+    position: relative !important;
+    z-index: 30 !important;
+  }
+
+  /* Evitar recorte de la imagen dentro de la card */
+  #shop .card-img-top {
+    object-fit: contain !important;
+    height: auto !important;
+    max-height: 420px; /* ajustar si quieres más o menos altura */
+    display: block;
+  }
+
+  /* Mantener el slider por debajo */
+  #carouselSolo,
+  #carouselSuperpuesto1,
+  #carouselSuperpuesto2 {
+    position: relative !important;
+    z-index: 5 !important;
+  }
 }

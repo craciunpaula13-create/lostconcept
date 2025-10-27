@@ -1,0 +1,24 @@
+/* variables que queremos crear nuevas */
+$primary: purple;
+$danger: green;
+
+$theme-colors: (
+	"primary": $primary,
+	"danger": $danger
+);
+																																																																				 
+
+
+@import "./node_modules/bootstrap/scss/bootstrap.scss";
+
+@import "./node_modules/bootstrap/scss/functions";
+@import "./node_modules/bootstrap/scss/variables";
+@import "./node_modules/bootstrap/scss/variables-dark";
+
+/* variables que queremos sobreescribir de Bootstrap */
+$custom-colors: (
+  "custom-color": #900
+);
+$theme-colors: map-merge($theme-colors, $custom-colors);
+@import "./node_modules/bootstrap/scss/bootstrap.scss";
+
