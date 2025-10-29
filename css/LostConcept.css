@@ -224,7 +224,7 @@ border-radius: 6px;
   margin: 40px 0;  /* Mismo espaciado arriba y abajo del header */
 }
 
-h2 {
+#newarrivals h2 {
   font-size: 4rem;
   text-align: center;
   margin: 0;  /* Quitamos el margen del h2 para controlarlo desde el header */
@@ -774,6 +774,24 @@ body.intro-playing{overflow:hidden}
   height: 100%;
 }
 
+/* Revert: restaurar comportamiento por defecto de las imágenes (sin recorte) */
+#fittingroom .carousel-inner .carousel-item img,
+#fittingroom .carousel-container img,
+#fittingroom img,
+#newarrivals img.img-fluid,
+#newarrivals .img-fluid.w-100 {
+  object-fit: initial !important;
+  width: 100% !important;
+  height: auto !important;
+  max-height: none !important;
+  display: block;
+}
+
+/* Asegurar que no haya overflow que esconda partes de la imagen */
+#fittingroom .carousel-container,
+#newarrivals .container {
+  overflow: visible !important;
+}
 
 /* Ajustes para que tarjetas y top-banner respondan al modo oscuro/claro */
 
@@ -942,8 +960,101 @@ section {
   align-self: flex-start;
 }
 
+/* Controles del primer slider (fitting room) - colocarlos arriba de la imagen */
+#carouselSolo {
+position: relative; /* asegurar contexto para controles */
+}
+#carouselSolo .carousel-control-prev,
+#carouselSolo .carousel-control-next {
+position: absolute;
+margin-top: 10rem;            /* bajadas 20px respecto a la versión anterior (antes 8px) */
+transform: none;    /* evitar translateY(-50%) */
+width: 44px;
+height: 44px;
+z-index: 9999;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 0;
+pointer-events: auto;
+}
+#carouselSolo .carousel-control-prev { left: 8px; }
+#carouselSolo .carousel-control-next { right: 8px; }
 
+/* Usar flechas SVG como background-image para prev/next */
+#carouselSolo .carousel-control-prev-icon,
+#carouselSolo .carousel-control-next-icon {
+width: 30rem;
+height: 30rem;
+background-size: 40px 40px;
+background-repeat: no-repeat;
+background-position: center;
+display: inline-block;
+}
 
+/* Flecha izquierda */
+#carouselSolo .carousel-control-prev-icon {
+background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='M15 18l-6-6 6-6'/></svg>");
+}
+
+/* Flecha derecha */
+#carouselSolo .carousel-control-next-icon {
+background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='M9 6l6 6-6 6'/></svg>");
+}
+
+#carouselSolo .carousel-indicators {
+bottom: 8px; /* indicadores cerca del borde inferior de la imagen */
+}
+
+#carouselSuperpuesto2 {
+margin-top: -100px; /* súbelo o bájalo cambiando este valor */
+}
+
+/* Estilos responsive para el fitting room */
+@media (max-width: 768px) {
+  #fittingroom {
+      padding-top: 1rem;
+      margin-top: 0;
+      position: relative;
+  }
+
+  #fittingroom .carousel-container {
+      transform: none;
+      width: 100%;
+      margin: 0;
+      padding: 0 1rem;
+  }
+
+  #carouselSolo {
+      margin-bottom: 2rem;
+  }
+
+  #carouselSuperpuesto1,
+  #carouselSuperpuesto2 {
+      position: relative;
+      width: 100%;
+      margin: 0 0 1rem 0;
+      transform: none;
+  }
+
+  #carouselSuperpuesto1 .carousel-inner,
+  #carouselSuperpuesto2 .carousel-inner {
+      max-width: 100%;
+  }
+
+  #carouselSuperpuesto1 img,
+  #carouselSuperpuesto2 img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+  }
+
+  #fittingroom .position-relative {
+      margin-top: 0 !important;
+      padding: 1rem 0;
+  }
+}
 
 /* Ajustes para tablets */
 @media (min-width: 769px) and (max-width: 1024px) {
@@ -1249,72 +1360,43 @@ footer .footer-links a:hover {
 }
 }
 
-/* Contenedor principal */
-.fittingroom-container {
-  position: relative;
-  width: 90%;
-  max-width: 400px; /* ajusta según tu diseño */
-  margin: 0 auto;
-  background-image: url('./fotos/cuerpo_web.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: top center;
-
-  /* 🔹 Truco para mantener proporción */
-  aspect-ratio: 3 / 5; /* ancho/alto */
-}
-
-/* Capas superpuestas */
-.fittingroom-container .layer {
-  position: absolute;
-  left: 0;
-  width: 100%;
-  pointer-events: none;
-}
-
-.fittingroom-container .layer img {
-  width: 100%;
-  height: auto;
-  pointer-events: auto;
-}
-
-/* Posición de cada prenda usando porcentajes */
-.fittingroom-container .sudadera {
-  top: 18%; /* ajusta según tu imagen del cuerpo */
-  z-index: 3;
-}
-
-.fittingroom-container .pantalon {
-  top: 52%; /* ajusta según la posición del pantalón */
-  z-index: 2;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .fittingroom-container {
-    max-width: 300px;
-    aspect-ratio: 3 / 5.2;
+/* ==========================================================
+   🔸 AJUSTES RESPONSIVE PARA MÓVIL
+   ========================================================== */
+   @media (max-width: 768px) {
+    #fittingroom .position-relative {
+      width: 95vw;
+      margin-top: -120vw; /* Ajuste proporcional al cuerpo */
+      background-size: contain;
+    }
+  
+    #carouselSuperpuesto1 {
+      margin-top: -3vw; /* Sudadera */
+    }
+  
+    #carouselSuperpuesto2 {
+      margin-top: -25vw; /* Pantalón */
+    }
+  
+    #carouselSuperpuesto1 img,
+    #carouselSuperpuesto2 img {
+      width: 100%;
+      height: auto;
+    }
+  
+    #carouselSuperpuesto1 button,
+    #carouselSuperpuesto2 button {
+      width: 10vw;
+    }
   }
-
-  .fittingroom-container .sudadera {
-    top: 20%;
+  
+  /* 🔹 Ajuste extra para pantallas muy pequeñas */
+  @media (max-width: 480px) {
+    #fittingroom .position-relative {
+      margin-top: -140vw;
+    }
+  
+    #carouselSuperpuesto2 {
+      margin-top: -30vw;
+    }
   }
-
-  .fittingroom-container .pantalon {
-    top: 54%;
-  }
-}
-
-@media (max-width: 480px) {
-  .fittingroom-container {
-    max-width: 250px;
-  }
-
-  .fittingroom-container .sudadera {
-    top: 22%;
-  }
-
-  .fittingroom-container .pantalon {
-    top: 56%;
-  }
-}
