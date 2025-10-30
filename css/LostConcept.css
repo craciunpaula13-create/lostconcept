@@ -653,22 +653,6 @@ body.intro-playing {
   margin: 0 auto;
 }
 
-#contact header h2 {
-  font-size: 2rem;
-  color: #333;
-  margin-bottom: 20px;
-  font-weight: bold;
-  text-align: center;
-}
-
-#contact p {
-  font-size: 1rem;
-  color: var(--muted-text);
-  margin-bottom: 30px;
-  line-height: 1.6;
-  text-align: center;
-}
-
 /* ============================
    11) Footer (inverso por defecto)
    ============================ */
@@ -1134,6 +1118,19 @@ body.dark footer .footer-text {
     width: calc(100% + 2rem);
   }
 }
+  /* Dark-mode: toggler visible on mobile */
+  body.dark .navbar .navbar-toggler {
+    background-color: #000 !important;
+    color: #fff !important;
+    border: none !important;
+  }
+
+  /* Ensure the icon appears white on dark toggler */
+  body.dark .navbar .navbar-toggler .navbar-toggler-icon {
+    /* Use an inverted white SVG to ensure visibility */
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,1)' stroke-width='2' stroke-linecap='round' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
+    filter: none !important;
+  }
 
 /* B) PANTALLAS MEDIANAS — 769px–1024px */
 @media (min-width: 769px) and (max-width: 1024px) {
