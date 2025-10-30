@@ -442,6 +442,7 @@ body.intro-playing {
 .product-modal h3 {
   margin: 8px 0 12px;
   font-size: 1.35rem;
+  color: #000000;
 }
 
 .product-modal .description {
@@ -579,20 +580,23 @@ body.intro-playing {
 }
 
 .section-separator img {
-    width: 180px;
-    height: auto;
-    display: block;
+  width: 180px;
+  height: auto;
+  display: block;
 }
 
 @media (max-width: 768px) {
-    .section-separator {
-        padding: 1.5rem 0;
-        margin: 1rem 0;
-    }
-    .section-separator img {
-        width: 120px;
-    }
-}/* ============================
+  .section-separator {
+    padding: 1.5rem 0;
+    margin: 1rem 0;
+  }
+
+  .section-separator img {
+    width: 120px;
+  }
+}
+
+/* ============================
    10) About
    ============================ */
 #about {
@@ -617,7 +621,7 @@ body.intro-playing {
 
 #about .about-row img {
   width: 50%;
-  border-radius: 1rem;
+  border-radius: 0.2rem;
   object-fit: cover;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
@@ -714,93 +718,97 @@ footer .footer-text {
     --page-bg: #070709;
     --text-color: #e8e8e8;
     --muted-text: #bdbdbd;
-
-    --nav-bg: #0b0b0d;
-    --card-bg: #0f1113;
-    --card-border: rgba(255, 255, 255, 0.06);
-
-    --banner-bg: #ffffff;
-    --banner-text: #000000;
-    --banner-logo-filter: none;
-
-    --footer-bg: #ffffff;
   }
 
-  html,
-  body {
-    background-color: var(--page-bg) !important;
-    color: var(--text-color) !important;
+  .product-modal h3,
+  .product-modal .card-title {
+    color: #000000 !important;
   }
 
-  .navbar {
-    background-color: var(--nav-bg) !important;
-    box-shadow: none !important;
-  }
 
-  .navbar .navbar-nav .nav-link {
-    color: var(--text-color) !important;
-  }
-
-  .navbar .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,1)' stroke-width='2' stroke-linecap='round' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
-  }
-
-  .card {
-    background-color: var(--card-bg) !important;
-    border-color: var(--card-border) !important;
-    color: var(--text-color) !important;
-  }
-
-  .card .card-title,
-  .card .card-text {
-    color: var(--text-color) !important;
-  }
-
-  .btn-primary {
-    background-color: #ffffff !important;
-    color: #000 !important;
-    border-color: #ffffff !important;
-  }
-
-  .btn-primary:hover {
-    background-color: #f0f0f0 !important;
-    color: #000 !important;
-  }
-
-  input,
-  textarea,
-  select,
-  .form-control {
-    background-color: rgba(255, 255, 255, 0.03) !important;
-    color: var(--text-color) !important;
-    border: 1px solid rgba(255, 255, 255, 0.06) !important;
-  }
-
-  .top-banner {
-    background-color: var(--banner-bg) !important;
-    color: var(--banner-text) !important;
-  }
-
-  .top-banner .banner-text {
-    color: var(--banner-text) !important;
-  }
-
-  .top-banner .banner-logo {
-    filter: var(--banner-logo-filter) !important;
-  }
-
-  /* Fitting room: flechas blancas */
-  #carouselSolo .carousel-control-prev-icon,
-  #carouselSolo .carousel-control-next-icon {
-    filter: brightness(0) invert(1) !important;
-  }
-
-  /* Flechas SVG de los sliders secundarios */
-  #carouselSuperpuesto1 button svg path,
-  #carouselSuperpuesto2 button svg path {
-    stroke: #fff !important;
-  }
 }
+
+html,
+body {
+  background-color: var(--page-bg) !important;
+  color: var(--text-color) !important;
+}
+
+.navbar {
+  background-color: var(--nav-bg) !important;
+  box-shadow: none !important;
+}
+
+.navbar .navbar-nav .nav-link {
+  color: var(--text-color) !important;
+}
+
+.navbar .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,1)' stroke-width='2' stroke-linecap='round' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
+}
+
+.card {
+  background-color: var(--card-bg) !important;
+  border-color: var(--card-border) !important;
+  color: var(--text-color) !important;
+}
+
+.card .card-title,
+.card .card-text {
+  color: var(--text-color) !important;
+}
+
+.btn-primary {
+  background-color: #ffffff !important;
+  color: #000 !important;
+  border-color: #ffffff !important;
+}
+
+.btn-primary:hover {
+  background-color: #f0f0f0 !important;
+  color: #000 !important;
+}
+
+input,
+textarea,
+select,
+.form-control {
+  background-color: rgba(255, 255, 255, 0.03) !important;
+  color: var(--text-color) !important;
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+}
+
+.top-banner {
+  background-color: var(--banner-bg) !important;
+  color: var(--banner-text) !important;
+}
+
+.top-banner .banner-text {
+  color: var(--banner-text) !important;
+}
+
+.top-banner .banner-logo {
+  filter: var(--banner-logo-filter) !important;
+}
+
+/* Fitting room: flechas blancas */
+#carouselSolo .carousel-control-prev-icon,
+#carouselSolo .carousel-control-next-icon {
+  filter: brightness(0) invert(1) !important;
+}
+
+/* Flechas SVG de los sliders secundarios */
+#carouselSuperpuesto1 button svg path,
+#carouselSuperpuesto2 button svg path {
+  stroke: #fff !important;
+}
+
+/* Product modal styles for dark mode */
+.product-modal h3,
+.product-modal .card-title {
+  color: #000000 !important;
+}
+
 
 /* Fallback manual para body.dark */
 body.dark #carouselSuperpuesto1 button svg path,
@@ -812,14 +820,14 @@ body.dark #carouselSuperpuesto2 button svg path {
   }
 
   /* Contacto: formulario claro sobre fondo oscuro */
-  #contact,
-  #contact header h2,
-  #contact p {
+  #contact header h2 {
     color: #ffffff !important;
   }
 
   #contact form {
     background-color: #ffffff !important;
+    padding: 2rem;
+    border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
 
@@ -946,6 +954,12 @@ body.dark .top-banner {
 
 body.dark .top-banner .banner-text {
   color: var(--banner-text) !important;
+}
+
+/* Product modal styles for manual dark mode */
+body.dark .product-modal h3,
+body.dark .product-modal .card-title {
+  color: #000000 !important;
 }
 
 body.dark footer {
@@ -1118,19 +1132,65 @@ body.dark footer .footer-text {
     width: calc(100% + 2rem);
   }
 }
-  /* Dark-mode: toggler visible on mobile */
-  body.dark .navbar .navbar-toggler {
-    background-color: #000 !important;
+
+/* Dark-mode: toggler visible on mobile */
+body.dark .navbar .navbar-toggler {
+  background-color: #000 !important;
+  color: #fff !important;
+  border: none !important;
+}
+
+/* Ensure the icon appears white on dark toggler */
+body.dark .navbar .navbar-toggler .navbar-toggler-icon {
+  /* Use an inverted white SVG to ensure visibility */
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,1)' stroke-width='2' stroke-linecap='round' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
+  filter: none !important;
+}
+
+/* Mobile dark-mode: collapsed navbar (menu) styling */
+@media (max-width: 768px) {
+
+  /* Collapse background when open in dark mode */
+  body.dark .navbar .navbar-collapse {
+    background-color: #0b0b0d !important;
     color: #fff !important;
-    border: none !important;
   }
 
-  /* Ensure the icon appears white on dark toggler */
-  body.dark .navbar .navbar-toggler .navbar-toggler-icon {
-    /* Use an inverted white SVG to ensure visibility */
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,1)' stroke-width='2' stroke-linecap='round' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
-    filter: none !important;
+  .dark .navbar .navbar-collapse {
+    background-color: #0b0b0d !important;
+    color: #fff !important;
   }
+
+  /* Links inside the collapsed menu */
+  body.dark .navbar .navbar-collapse .nav-link,
+  .dark .navbar .navbar-collapse .nav-link {
+    color: #fff !important;
+  }
+
+  body.dark .navbar .navbar-collapse .nav-link:hover,
+  .dark .navbar .navbar-collapse .nav-link:hover,
+  body.dark .navbar .navbar-collapse .nav-link:focus,
+  .dark .navbar .navbar-collapse .nav-link:focus {
+    color: #dddddd !important;
+  }
+}
+
+/* Also support prefers-color-scheme: dark for the collapsed menu on mobile */
+@media (max-width: 768px) and (prefers-color-scheme: dark) {
+  .navbar .navbar-collapse {
+    background-color: #0b0b0d !important;
+    color: #fff !important;
+  }
+
+  .navbar .navbar-collapse .nav-link {
+    color: #fff !important;
+  }
+
+  .navbar .navbar-collapse .nav-link:hover,
+  .navbar .navbar-collapse .nav-link:focus {
+    color: #dddddd !important;
+  }
+}
 
 /* B) PANTALLAS MEDIANAS — 769px–1024px */
 @media (min-width: 769px) and (max-width: 1024px) {
@@ -1158,4 +1218,89 @@ body.dark footer .footer-text {
     margin-right: auto;
     max-width: 90%;
   }
+}
+
+/* Contact form styling for dark mode - both implementations */
+@media (prefers-color-scheme: dark) {
+  #contact header h2 {
+    color: #ffffff !important;
+  }
+
+  #contact form {
+    background-color: #ffffff !important;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  #contact .form-label {
+    color: #000000 !important;
+  }
+
+  #contact .form-control {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    border: 1px solid #cccccc !important;
+  }
+
+  #contact .form-control:focus {
+    box-shadow: 0 0 0 .2rem rgba(0, 0, 0, 0.1);
+    border-color: #000000 !important;
+  }
+
+  #contact .form-control::placeholder {
+    color: #666666 !important;
+  }
+
+  #contact .btn-light {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    border: none !important;
+  }
+
+  #contact .btn-light:hover {
+    background-color: #333333 !important;
+    color: #ffffff !important;
+  }
+}
+
+body.dark #contact header h2 {
+  color: #ffffff !important;
+}
+
+body.dark #contact form {
+  background-color: #ffffff !important;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+body.dark #contact .form-label {
+  color: #000000 !important;
+}
+
+body.dark #contact .form-control {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  border: 1px solid #cccccc !important;
+}
+
+body.dark #contact .form-control:focus {
+  box-shadow: 0 0 0 .2rem rgba(0, 0, 0, 0.1);
+  border-color: #000000 !important;
+}
+
+body.dark #contact .form-control::placeholder {
+  color: #666666 !important;
+}
+
+body.dark #contact .btn-light {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border: none !important;
+}
+
+body.dark #contact .btn-light:hover {
+  background-color: #333333 !important;
+  color: #ffffff !important;
 }

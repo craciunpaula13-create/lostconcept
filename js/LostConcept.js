@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const card = verBtn.closest('.card');
       if (!card) return;
 
-      // Extraer datos del producto
+      // Extraer datos del productoo 
       const img = card.querySelector('img');
       const t = card.querySelector('.card-title');
       const d = card.querySelector('.card-text');
@@ -213,21 +213,21 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // Banner animation
-document.addEventListener('DOMContentLoaded', function() {
-    const banner = document.querySelector('.banner-content');
-    if (banner) {
-        const contentWidth = banner.scrollWidth / 4;
+document.addEventListener('DOMContentLoaded', function () {
+  const banner = document.querySelector('.banner-content');
+  if (banner) {
+    const contentWidth = banner.scrollWidth / 4;
+    gsap.set(banner, { x: 0 });
+    gsap.to(banner, {
+      x: -contentWidth,
+      duration: 15,
+      ease: "none",
+      repeat: -1,
+      onRepeat: () => {
         gsap.set(banner, { x: 0 });
-        gsap.to(banner, {
-            x: -contentWidth,
-            duration: 15,
-            ease: "none",
-            repeat: -1,
-            onRepeat: () => {
-                gsap.set(banner, { x: 0 });
-            }
-        });
-    }
+      }
+    });
+  }
 });
 
 // Función para insertar el separador antes de una sección
@@ -312,33 +312,31 @@ window.addEventListener('resize', function () {
 
 // Inicializar separadores y animaciones
 document.addEventListener('DOMContentLoaded', () => {
-    try {
-        // Insertar separadores antes de todas las secciones principales
-        const sections = ['shop', 'fittingroom', 'about', 'contact'];
-        const logos = sections.map(id => insertSectionSeparator(id)).filter(Boolean);
+  try {
+    // Insertar separadores antes de todas las secciones principales
+    const sections = ['shop', 'fittingroom', 'about', 'contact'];
+    const logos = sections.map(id => insertSectionSeparator(id)).filter(Boolean);
 
-        // Respetar preferencia de reducir movimiento
-        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        if (!reduceMotion && logos.length > 0) {
-            logos.forEach((logo, idx) => {
-                gsap.set(logo, { transformOrigin: 'center center' });
-                // Animación de escala con GSAP
-                gsap.to(logo, {
-                    scale: 1.2,
-                    duration: 1.5,
-                    repeat: -1,
-                    yoyo: true,
-                    ease: "sine.inOut",
-                    delay: idx * 0.3
-                });
-            });
-        }
-    } catch (e) {
-        console.warn('Error al inicializar animación de separadores:', e);
+    // Respetar preferencia de reducir movimiento
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduceMotion && logos.length > 0) {
+      logos.forEach((logo, idx) => {
+        gsap.set(logo, { transformOrigin: 'center center' });
+        // Animación de escala con GSAP
+        gsap.to(logo, {
+          scale: 1.2,
+          duration: 1.5,
+          repeat: -1,
+          yoyo: true,
+          ease: "sine.inOut",
+          delay: idx * 0.3
+        });
+      });
     }
+  } catch (e) {
+    console.warn('Error al inicializar animación de separadores:', e);
+  }
 });
 
 // Run a cleanup once on load to ensure hidden sections don't keep separators
 document.addEventListener('DOMContentLoaded', updateSeparators);
-
-
