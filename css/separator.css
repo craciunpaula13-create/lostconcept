@@ -1,0 +1,13 @@
+.section-separator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0;
+    margin: 1rem 0;
+}
+
+.section-separator img {
+    width: 150px;
+    height: auto;
+    display: block;
+}
